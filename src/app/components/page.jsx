@@ -1,14 +1,11 @@
-"use client";
 
 import Link from "next/link";
-import {  useKindeAuth } from "@kinde-oss/kinde-auth-nextjs";
-import {LogoutLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
 
+import { getKindeServerSession,LogoutLink,LoginLink } from "@kinde-oss/kinde-auth-nextjs/server";
 
-const Navigation = () => {
-
-  const { isAuthenticated,user } = useKindeAuth();
-  // console.log(isAuthenticated,user)
+export default async function Navbar()  {
+  const { isAuthenticated } = getKindeServerSession();
+  const isLoggedIn = await isAuthenticated();
 
   const navOption = (
     <>
@@ -55,7 +52,7 @@ const Navigation = () => {
           <ul className="menu menu-horizontal px-1 text-black gap-2">{navOption}</ul>
         </div>
         <div className="navbar-end">
-          {user && isAuthenticated ? (
+          {isLoggedIn ? (
             <LogoutLink>
               <button className="btn btn-ghost">Logout</button>
             </LogoutLink>
@@ -70,4 +67,3 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;

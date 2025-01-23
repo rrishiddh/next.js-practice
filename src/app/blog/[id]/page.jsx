@@ -9,6 +9,7 @@ const BlogDetails = async ({ params }) => {
         <h1 className="my-5 text-center font-bold text-xl">Blog Details Page</h1>
         <div className="container mx-auto my-10 p-5 border w-[60%]">
         <p className=" mb-4"><span className="font-bold">Blog ID: </span> {blog.id}</p>
+        <p className=" mb-4"><span className="font-bold">User ID: </span> {blog.userId}</p>
           <h1 className="text-lg  mb-4">  <span className="font-bold">Title:</span> {blog.title}.</h1>
           <p className="font-light"> <span className="font-bold">Blog Details : </span> {blog.body}.</p>
         </div>
