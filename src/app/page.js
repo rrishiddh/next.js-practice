@@ -22,24 +22,50 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen w-[90%] mx-auto">
+    <div className="min-h-screen w-[90%] mx-auto pb-10 ">
       <div className="text-center my-3">
-        <h1 className="text-xl font-bold">Welcome, This Is Home Page!</h1>
+        <h1 className="text-xl font-bold">Welcome To The Home Page!</h1>
         <p className="font-light mt-2">Check out some blog posts here!</p>
       </div>
-      <div className="grid grid-cols-3 max-sm:grid-cols-1  justify-center gap-4">
-        {allBlogPost.map((post) => (
-          <div key={post.id} className="card bg-base-100 shadow-xl">
-            <div className="card-body">
-              <h2 className="card-title">{post.title}</h2>
-              <div className="card-actions justify-end">
-                <a href={`/blog/${post.id}`} className="btn btn-primary">
-                  Read More
-                </a>
-              </div>
-            </div>
+      <div className="justify-center ">
+        {allBlogPost.length ? (
+          <div className="overflow-x-auto">
+            <table className="table">
+              {/* head */}
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Title</th>
+                  <th>View Details</th>
+                </tr>
+              </thead>
+
+              {allBlogPost.map((post, idx) => (
+                <tbody key={post.id}>
+                  {/* row 1 */}
+                  <tr className="hover">
+                    <th>{idx + 1}</th>
+                    <td>
+                      <a href={`/blog/${post.id}`}>{post.title}</a>
+                    </td>
+                    <td>
+                      <a
+                        href={`/blog/${post.id}`}
+                        className="btn btn-info btn-sm"
+                      >
+                        Read More
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              ))}
+            </table>
           </div>
-        ))}
+        ) : (
+          <div className="text-center text-xl text-red-500 py-10">
+            No Data Available!
+          </div>
+        )}
       </div>
     </div>
   );

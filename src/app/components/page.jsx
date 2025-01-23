@@ -20,7 +20,7 @@ export default async function Navbar()  {
 
   return (
     <div>
-      <div className="navbar bg-base-200 px-5">
+      <div className="navbar bg-base-300 px-5">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -41,12 +41,12 @@ export default async function Navbar()  {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content text-black bg-base-300 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content text-black bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               {navOption}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl text-black">EJP10</a>
+          <a className="text-xl text-black">EJP10</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-black gap-2">{navOption}</ul>
@@ -58,7 +58,7 @@ export default async function Navbar()  {
             </LogoutLink>
           ) : (
             <LoginLink>
-              <button className="btn btn-ghost">Sign in</button>
+              <button className="btn btn-ghost">Login</button>
             </LoginLink>
           )}
         </div>
